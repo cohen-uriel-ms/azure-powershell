@@ -62,7 +62,7 @@ Accept wildcard characters: False
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
 Aliases: AzContext, AzureRmContext, AzureCredential
 
@@ -77,7 +77,7 @@ Accept wildcard characters: False
 The Azure Front Door endpoint name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -92,7 +92,7 @@ Accept wildcard characters: False
 Protocol this rule will use when forwarding traffic to backends.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -107,7 +107,7 @@ Accept wildcard characters: False
 Whether to automatically redirect HTTP traffic to HTTPS traffic.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -122,7 +122,7 @@ Accept wildcard characters: False
 The resource id of the Azure Front Door origin group.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -138,7 +138,7 @@ A directory path on the origin that Azure Front Door can use to retrieve content
 contoso.cloudapp.net/originpath.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -153,7 +153,7 @@ Accept wildcard characters: False
 The Azure Front Door profile name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -168,7 +168,7 @@ Accept wildcard characters: False
 Defines how Azure Front Door caches requests that include query strings.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -183,7 +183,7 @@ Accept wildcard characters: False
 The Azure resource group name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -198,7 +198,7 @@ Accept wildcard characters: False
 The Azure Front Door route object.
 
 ```yaml
-Type: PSAfdRoute
+Type: Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdRoute
 Parameter Sets: ByObjectParameterSet
 Aliases:
 
@@ -213,7 +213,7 @@ Accept wildcard characters: False
 The Azure Front Door route name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -258,7 +258,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -274,7 +274,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 

@@ -45,7 +45,7 @@ Updates the origin.
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
 Aliases: AzContext, AzureRmContext, AzureCredential
 
@@ -61,7 +61,7 @@ The address of the origin.
 Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -77,7 +77,7 @@ The value of the HTTP port.
 Must be between 1 and 65535.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -93,7 +93,7 @@ The value of the HTTPS port.
 Must be between 1 and 65535.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -108,7 +108,7 @@ Accept wildcard characters: False
 The Azure Front Door origin object.
 
 ```yaml
-Type: PSAfdOrigin
+Type: Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdOrigin
 Parameter Sets: ByObjectParameterSet
 Aliases:
 
@@ -123,7 +123,7 @@ Accept wildcard characters: False
 The Azure Front Door origin group name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -139,7 +139,7 @@ The host header value sent to the origin with each request.
 If you leave this blank, the request hostname determines this value.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -154,7 +154,7 @@ Accept wildcard characters: False
 The Azure Front Door origin name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -170,7 +170,7 @@ Priority of origin in given origin group for load balancing.
 Higher priorities will not be used for load balancing if any lower priority origin is healthy.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -185,7 +185,7 @@ Accept wildcard characters: False
 The Azure resource id of the shared private link resource.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -200,7 +200,7 @@ Accept wildcard characters: False
 The location of the shared private link resource.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -215,7 +215,7 @@ Accept wildcard characters: False
 The request message for requesting approval of the shared private link resource.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -230,7 +230,7 @@ Accept wildcard characters: False
 The Azure Front Door profile name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -245,7 +245,7 @@ Accept wildcard characters: False
 The Azure resource group name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -260,7 +260,7 @@ Accept wildcard characters: False
 Weight of the origin in given origin group for load balancing.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -275,7 +275,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -291,7 +291,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 

@@ -26,7 +26,7 @@ New-AzFrontDoorCdnRuleAction -HeaderType <String> -HeaderAction <String> -Header
 
 ### AfdRuleCacheKeyQueryStringAction
 ```
-New-AzFrontDoorCdnRuleAction -QueryStringBehavior <String> -QueryParameters <String>
+New-AzFrontDoorCdnRuleAction -QueryStringBehavior <String> -QueryParameter <String>
  [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
 ```
 
@@ -67,7 +67,7 @@ Creates the rule action.
 Caching behavior for the action.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleCacheExpirationAction
 Aliases:
 
@@ -83,7 +83,7 @@ The duration for which the content needs to be cached.
 Allowed format is \[d.\]hh:mm:ss
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleCacheExpirationAction
 Aliases:
 
@@ -100,7 +100,7 @@ Fragment is the part of the URL that comes after #.
 Do not include the #.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -116,7 +116,7 @@ Host to redirect.
 Leave empty to use the incoming host as the destination host.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -133,7 +133,7 @@ Path cannot be empty and must start with /.
 Leave empty to use the incoming path as destination path.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -151,7 +151,7 @@ Query string must be in \<key\>=\<value\> format.
 ? and & will be added automatically so do not include them.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -166,7 +166,7 @@ Accept wildcard characters: False
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
 Aliases: AzContext, AzureRmContext, AzureCredential
 
@@ -181,7 +181,7 @@ Accept wildcard characters: False
 Define the relative URL to which the above requests will be rewritten by.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRewriteAction
 Aliases:
 
@@ -197,7 +197,7 @@ Protocol to use for the redirect.
 The default value is MatchRequest.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -212,7 +212,7 @@ Accept wildcard characters: False
 Action to perform.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleHeaderTypeAction
 Aliases:
 
@@ -227,7 +227,7 @@ Accept wildcard characters: False
 Name of the header to modify.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleHeaderTypeAction
 Aliases:
 
@@ -242,7 +242,7 @@ Accept wildcard characters: False
 Whether to modify request header or response header.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleHeaderTypeAction
 Aliases:
 
@@ -257,7 +257,7 @@ Accept wildcard characters: False
 Value for the specified action.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleHeaderTypeAction
 Aliases:
 
@@ -272,7 +272,7 @@ Accept wildcard characters: False
 Defines the origin group override action for the delivery rule.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleOriginGroupOverrideAction
 Aliases:
 
@@ -287,7 +287,7 @@ Accept wildcard characters: False
 Whether to preserve unmatched path.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: AfdRuleUrlRewriteAction
 Aliases:
 
@@ -298,11 +298,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -QueryParameters
+### -QueryParameter
 Query parameters to include or exclude (comma separated).
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleCacheKeyQueryStringAction
 Aliases:
 
@@ -318,7 +318,7 @@ Defines the parameters for the cache-key query string action.
 Accepted values : Include, IncludeAll, Exclude, ExcludeAll
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleCacheKeyQueryStringAction
 Aliases:
 
@@ -333,7 +333,7 @@ Accept wildcard characters: False
 The redirect type the rule will use when redirecting traffic.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRedirectAction
 Aliases:
 
@@ -349,7 +349,7 @@ Define a request URI pattern that identifies the type of requests that may be re
 If value is blank, all strings are matched.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: AfdRuleUrlRewriteAction
 Aliases:
 

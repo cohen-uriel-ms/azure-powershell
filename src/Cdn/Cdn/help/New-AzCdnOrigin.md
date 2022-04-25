@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-help.xml
 Module Name: Az.Cdn
 online version: https://docs.microsoft.com/powershell/module/az.cdn/new-azcdnorigin
 schema: 2.0.0
@@ -8,59 +8,59 @@ schema: 2.0.0
 # New-AzCdnOrigin
 
 ## SYNOPSIS
-Creates a new CDN origin
+Creates a new origin within the specified endpoint.
 
 ## SYNTAX
 
-### ByFieldsParameterSet (Default)
 ```
-New-AzCdnOrigin -EndpointName <String> -HostName <String> [-HttpPort <Int32>] [-HttpsPort <Int32>]
- [-OriginHostHeader <String>] -OriginName <String> -ProfileName <String> [-Priority <Int32>]
- -ResourceGroupName <String> [-Weight <Int32>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
-```
-
-### ByFieldsPrivateLinkParameterSet
-```
-New-AzCdnOrigin -EndpointName <String> -HostName <String> [-HttpPort <Int32>] [-HttpsPort <Int32>]
- [-OriginHostHeader <String>] -OriginName <String> -ProfileName <String> [-Priority <Int32>]
- [-PrivateLinkApprovalMessage <String>] -PrivateLinkLocation <String> -PrivateLinkResourceId <String>
- -ResourceGroupName <String> [-Weight <Int32>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
-```
-
-### ByObjectParameterSet
-```
-New-AzCdnOrigin -CdnOrigin <PSOrigin> [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+New-AzCdnOrigin -EndpointName <String> -Name <String> -ProfileName <String> -ResourceGroupName <String>
+ [-SubscriptionId <String>] [-Enabled] [-HostName <String>] [-HttpPort <Int32>] [-HttpsPort <Int32>]
+ [-OriginHostHeader <String>] [-Priority <Int32>] [-PrivateLinkAlias <String>]
+ [-PrivateLinkApprovalMessage <String>] [-PrivateLinkLocation <String>] [-PrivateLinkResourceId <String>]
+ [-Weight <Int32>] [-DefaultProfile <PSObject>] [-AsJob] [-NoWait] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The New-AzCdnOrigin will create a new CDN origin within the specified endpoint.
+Creates a new origin within the specified endpoint.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: {{ Add title here }}
 ```powershell
-New-AzCdnOrigin -ResourceGroupName $resourceGroupName -ProfileName $profileName -EndpointName $endpointName -OriginName $originName -HostName $hostName
+{{ Add code here }}
 ```
 
-This cmdlet will create a new CDN origin for the specified endpoint. It will use the provided hostname as the origin. 
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
-### -CdnOrigin
-The CDN origin object.
+### -AsJob
+Run the command as a job
 
 ```yaml
-Type: Microsoft.Azure.Commands.Cdn.Models.Origin.PSOrigin
-Parameter Sets: ByObjectParameterSet
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -68,9 +68,24 @@ Accept wildcard characters: False
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
+Type: System.Management.Automation.PSObject
 Parameter Sets: (All)
-Aliases: AzContext, AzureRmContext, AzureCredential
+Aliases: AzureRMContext, AzureCredential
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Enabled
+Origin is enabled for load balancing or not
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -80,11 +95,11 @@ Accept wildcard characters: False
 ```
 
 ### -EndpointName
-Azure CDN endpoint name.
+Name of the endpoint under the profile which is unique globally.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -95,14 +110,15 @@ Accept wildcard characters: False
 ```
 
 ### -HostName
-Azure CDN origin host name.
+The address of the origin.
+Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -110,11 +126,12 @@ Accept wildcard characters: False
 ```
 
 ### -HttpPort
-Azure CDN origin http port.
+The value of the HTTP port.
+Must be between 1 and 65535.
 
 ```yaml
-Type: System.Nullable`1[System.Int32]
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Type: System.Int32
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -125,11 +142,42 @@ Accept wildcard characters: False
 ```
 
 ### -HttpsPort
-Azure CDN origin https port.
+The value of the HTTPS port.
+Must be between 1 and 65535.
 
 ```yaml
-Type: System.Nullable`1[System.Int32]
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Type: System.Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Name
+Name of the origin that is unique within the endpoint.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases: OriginName
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoWait
+Run the command asynchronously
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -140,11 +188,14 @@ Accept wildcard characters: False
 ```
 
 ### -OriginHostHeader
-Azure CDN origin host header.
+The host header value sent to the origin with each request.
+If you leave this blank, the request hostname determines this value.
+Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+This overrides the host header defined at Endpoint
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -154,27 +205,29 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -OriginName
-Azure CDN origin name.
+### -Priority
+Priority of origin in given origin group for load balancing.
+Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
 
 ```yaml
-Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Type: System.Int32
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Priority
-Azure CDN origin priority.
+### -PrivateLinkAlias
+The Alias of the Private Link resource.
+Populating this optional field indicates that this origin is 'Private'
 
 ```yaml
-Type: System.Nullable`1[System.Int32]
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Type: System.String
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -189,7 +242,7 @@ A custom message to be included in the approval request to connect to the Privat
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -200,14 +253,15 @@ Accept wildcard characters: False
 ```
 
 ### -PrivateLinkLocation
-Azure CDN origin private link location.
+The location of the Private Link resource.
+Required only if 'privateLinkResourceId' is populated
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -215,14 +269,15 @@ Accept wildcard characters: False
 ```
 
 ### -PrivateLinkResourceId
-Azure CDN origin private link resource id.
+The Resource Id of the Private Link resource.
+Populating this optional field indicates that this backend is 'Private'
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -230,11 +285,11 @@ Accept wildcard characters: False
 ```
 
 ### -ProfileName
-Azure CDN profile name.
+Name of the CDN profile which is unique within the resource group.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -245,11 +300,11 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceGroupName
-The resource group of the Azure CDN profile.
+Name of the Resource group within the Azure subscription.
 
 ```yaml
 Type: System.String
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -259,12 +314,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Weight
-Azure CDN origin weight.
+### -SubscriptionId
+Azure Subscription ID.
 
 ```yaml
-Type: System.Nullable`1[System.Int32]
-Parameter Sets: ByFieldsParameterSet, ByFieldsPrivateLinkParameterSet
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: (Get-AzContext).Subscription.Id
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Weight
+Weight of the origin in given origin group for load balancing.
+Must be between 1 and 1000
+
+```yaml
+Type: System.Int32
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -290,7 +361,8 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -309,12 +381,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Cdn.Models.Origin.PSOrigin
+### Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.Api20210601.IOrigin
 
 ## NOTES
+
+ALIASES
 
 ## RELATED LINKS

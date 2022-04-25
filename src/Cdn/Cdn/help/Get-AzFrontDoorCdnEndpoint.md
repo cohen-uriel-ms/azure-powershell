@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-help.xml
 Module Name: Az.Cdn
 online version: https://docs.microsoft.com/powershell/module/az.cdn/get-azfrontdoorcdnendpoint
 schema: 2.0.0
@@ -8,38 +8,53 @@ schema: 2.0.0
 # Get-AzFrontDoorCdnEndpoint
 
 ## SYNOPSIS
-Gets the endpoint.
+Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
 
 ## SYNTAX
 
-### ByFieldsParameterSet (Default)
+### List (Default)
 ```
-Get-AzFrontDoorCdnEndpoint [-EndpointName <String>] -ProfileName <String> -ResourceGroupName <String>
- [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
-```
-
-### ByObjectParameterSet
-```
-Get-AzFrontDoorCdnEndpoint -Profile <PSAfdProfile> [-DefaultProfile <IAzureContextContainer>]
- [<CommonParameters>]
+Get-AzFrontDoorCdnEndpoint -ProfileName <String> -ResourceGroupName <String> [-SubscriptionId <String[]>]
+ [-DefaultProfile <PSObject>] [<CommonParameters>]
 ```
 
-### ByResourceIdParameterSet
+### Get
 ```
-Get-AzFrontDoorCdnEndpoint -ResourceId <String> [-DefaultProfile <IAzureContextContainer>] [<CommonParameters>]
+Get-AzFrontDoorCdnEndpoint -EndpointName <String> -ProfileName <String> -ResourceGroupName <String>
+ [-SubscriptionId <String[]>] [-DefaultProfile <PSObject>] [<CommonParameters>]
+```
+
+### GetViaIdentity
+```
+Get-AzFrontDoorCdnEndpoint -InputObject <ICdnIdentity> [-DefaultProfile <PSObject>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets the endpoint.
+Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: {{ Add title here }}
 ```powershell
-Get-AzFrontDoorCdnEndpoint -EndpointName $endpointName -ProfileName $profileName -ResourceGroupName $resourceGroupName
+{{ Add code here }}
 ```
 
-Gets the endpoint.
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
@@ -47,9 +62,9 @@ Gets the endpoint.
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: System.Management.Automation.PSObject
 Parameter Sets: (All)
-Aliases: AzContext, AzureRmContext, AzureCredential
+Aliases: AzureRMContext, AzureCredential
 
 Required: False
 Position: Named
@@ -59,26 +74,27 @@ Accept wildcard characters: False
 ```
 
 ### -EndpointName
-The Azure Front Door endpoint name.
+Name of the endpoint under the profile which is unique globally.
 
 ```yaml
-Type: String
-Parameter Sets: ByFieldsParameterSet
+Type: System.String
+Parameter Sets: Get
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Profile
-The Azure Front Door profile object.
+### -InputObject
+Identity Parameter
+To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
 
 ```yaml
-Type: PSAfdProfile
-Parameter Sets: ByObjectParameterSet
+Type: Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.ICdnIdentity
+Parameter Sets: GetViaIdentity
 Aliases:
 
 Required: True
@@ -89,11 +105,11 @@ Accept wildcard characters: False
 ```
 
 ### -ProfileName
-The Azure Front Door profile name.
+Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 
 ```yaml
-Type: String
-Parameter Sets: ByFieldsParameterSet
+Type: System.String
+Parameter Sets: List, Get
 Aliases:
 
 Required: True
@@ -104,11 +120,11 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceGroupName
-The Azure resource group name.
+Name of the Resource group within the Azure subscription.
 
 ```yaml
-Type: String
-Parameter Sets: ByFieldsParameterSet
+Type: System.String
+Parameter Sets: List, Get
 Aliases:
 
 Required: True
@@ -118,17 +134,17 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ResourceId
-The Azure resource id.
+### -SubscriptionId
+Azure Subscription ID.
 
 ```yaml
-Type: String
-Parameter Sets: ByResourceIdParameterSet
+Type: System.String[]
+Parameter Sets: List, Get
 Aliases:
 
-Required: True
+Required: False
 Position: Named
-Default value: None
+Default value: (Get-AzContext).Subscription.Id
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -138,12 +154,35 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdProfile
+### Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.ICdnIdentity
 
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdEndpoint
+### Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.Api20210601.IAfdEndpoint
 
 ## NOTES
+
+ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+INPUTOBJECT <ICdnIdentity>: Identity Parameter
+  - `[CustomDomainName <String>]`: Name of the domain under the profile which is unique globally.
+  - `[EndpointName <String>]`: Name of the endpoint under the profile which is unique globally.
+  - `[Id <String>]`: Resource identity path
+  - `[OriginGroupName <String>]`: Name of the origin group which is unique within the endpoint.
+  - `[OriginName <String>]`: Name of the origin which is unique within the profile.
+  - `[PolicyName <String>]`: The name of the CdnWebApplicationFirewallPolicy.
+  - `[ProfileName <String>]`: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+  - `[ResourceGroupName <String>]`: Name of the Resource group within the Azure subscription.
+  - `[RouteName <String>]`: Name of the routing rule.
+  - `[RuleName <String>]`: Name of the delivery rule which is unique within the endpoint.
+  - `[RuleSetName <String>]`: Name of the rule set under the profile which is unique globally.
+  - `[SecretName <String>]`: Name of the Secret under the profile.
+  - `[SecurityPolicyName <String>]`: Name of the security policy under the profile.
+  - `[SubscriptionId <String>]`: Azure Subscription ID.
 
 ## RELATED LINKS

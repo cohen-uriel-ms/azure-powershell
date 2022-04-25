@@ -45,7 +45,7 @@ Updates the origin group.
 The additional latency in milliseconds for probes to fall into the lowest latency bucket.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -60,7 +60,7 @@ Accept wildcard characters: False
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: Microsoft.Azure.Commands.Common.Authentication.Abstractions.Core.IAzureContextContainer
 Parameter Sets: (All)
 Aliases: AzContext, AzureRmContext, AzureCredential
 
@@ -75,7 +75,7 @@ Accept wildcard characters: False
 The Azure Front Door origin group object.
 
 ```yaml
-Type: PSAfdOriginGroup
+Type: Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdOriginGroup
 Parameter Sets: ByObjectParameterSet
 Aliases:
 
@@ -90,7 +90,7 @@ Accept wildcard characters: False
 The Azure Front Door origin group name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -105,7 +105,7 @@ Accept wildcard characters: False
 The number of seconds between health probes.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -120,7 +120,7 @@ Accept wildcard characters: False
 The path relative to the origin that is used to determine the health of the origin.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -135,7 +135,7 @@ Accept wildcard characters: False
 Protocol to use for health probe.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -150,7 +150,7 @@ Accept wildcard characters: False
 The type of health probe request that is made.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -165,7 +165,7 @@ Accept wildcard characters: False
 The Azure Front Door profile name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -180,7 +180,7 @@ Accept wildcard characters: False
 The Azure resource group name.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -195,7 +195,7 @@ Accept wildcard characters: False
 The number of samples to consider for load balancing decisions.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -210,7 +210,7 @@ Accept wildcard characters: False
 The number of samples within the sample period that must succeed.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -225,7 +225,7 @@ Accept wildcard characters: False
 Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: ByFieldsParameterSet
 Aliases:
 
@@ -240,7 +240,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -256,7 +256,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 

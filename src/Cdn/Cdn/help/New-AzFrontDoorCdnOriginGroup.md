@@ -1,5 +1,5 @@
 ---
-external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-Help.xml
+external help file: Microsoft.Azure.PowerShell.Cmdlets.Cdn.dll-help.xml
 Module Name: Az.Cdn
 online version: https://docs.microsoft.com/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup
 schema: 2.0.0
@@ -8,37 +8,52 @@ schema: 2.0.0
 # New-AzFrontDoorCdnOriginGroup
 
 ## SYNOPSIS
-Creates the origin group.
+Creates a new origin group within the specified profile.
 
 ## SYNTAX
 
 ```
-New-AzFrontDoorCdnOriginGroup [-AdditionalLatencyInMillisecond <Int32>] -OriginGroupName <String>
- [-ProbeIntervalInSeconds <Int32>] [-ProbePath <String>] [-ProbeProtocol <String>] [-ProbeRequestType <String>]
- -ProfileName <String> -ResourceGroupName <String> [-SampleSize <Int32>] [-SuccessfulSamplesRequired <Int32>]
- [-TrafficRestorationTimeToHealedOrNewEndpointsInMinutes <Int32>] [-DefaultProfile <IAzureContextContainer>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+New-AzFrontDoorCdnOriginGroup -OriginGroupName <String> -ProfileName <String> -ResourceGroupName <String>
+ [-SubscriptionId <String>] [-HealthProbeSetting <IHealthProbeParameters>]
+ [-LoadBalancingSetting <ILoadBalancingSettingsParameters>] [-SessionAffinityState <EnabledState>]
+ [-TrafficRestorationTimeToHealedOrNewEndpointsInMinute <Int32>] [-DefaultProfile <PSObject>] [-AsJob]
+ [-NoWait] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Creates the origin group.
+Creates a new origin group within the specified profile.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1: {{ Add title here }}
 ```powershell
-New-AzFrontDoorCdnOriginGroup -OriginGroupName $originGroupName -ProfileName $profileName -ResourceGroupName $resourceGroupName
+{{ Add code here }}
 ```
 
-Creates the origin group.
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
+
+### Example 2: {{ Add title here }}
+```powershell
+{{ Add code here }}
+```
+
+```output
+{{ Add output here }}
+```
+
+{{ Add description here }}
 
 ## PARAMETERS
 
-### -AdditionalLatencyInMillisecond
-The additional latency in milliseconds for probes to fall into the lowest latency bucket.
+### -AsJob
+Run the command as a job
 
 ```yaml
-Type: Int32
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -53,9 +68,56 @@ Accept wildcard characters: False
 The credentials, account, tenant, and subscription used for communication with Azure.
 
 ```yaml
-Type: IAzureContextContainer
+Type: System.Management.Automation.PSObject
 Parameter Sets: (All)
-Aliases: AzContext, AzureRmContext, AzureCredential
+Aliases: AzureRMContext, AzureCredential
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -HealthProbeSetting
+Health probe settings to the origin that is used to determine the health of the origin.
+To construct, see NOTES section for HEALTHPROBESETTING properties and create a hash table.
+
+```yaml
+Type: Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.Api20210601.IHealthProbeParameters
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -LoadBalancingSetting
+Load balancing settings for a backend pool
+To construct, see NOTES section for LOADBALANCINGSETTING properties and create a hash table.
+
+```yaml
+Type: Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.Api20210601.ILoadBalancingSettingsParameters
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoWait
+Run the command asynchronously
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -65,10 +127,10 @@ Accept wildcard characters: False
 ```
 
 ### -OriginGroupName
-The Azure Front Door origin group name.
+Name of the origin group which is unique within the endpoint.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -79,71 +141,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ProbeIntervalInSeconds
-The number of seconds between health probes.
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProbePath
-The path relative to the origin that is used to determine the health of the origin.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProbeProtocol
-Protocol to use for health probe.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProbeRequestType
-The type of health probe request that is made.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ProfileName
-The Azure Front Door profile name.
+Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -155,10 +157,10 @@ Accept wildcard characters: False
 ```
 
 ### -ResourceGroupName
-The Azure resource group name.
+Name of the Resource group within the Azure subscription.
 
 ```yaml
-Type: String
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
@@ -169,11 +171,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SampleSize
-The number of samples to consider for load balancing decisions.
+### -SessionAffinityState
+Whether to allow session affinity on this host.
+Valid options are 'Enabled' or 'Disabled'
 
 ```yaml
-Type: Int32
+Type: Microsoft.Azure.PowerShell.Cmdlets.Cdn.Support.EnabledState
 Parameter Sets: (All)
 Aliases:
 
@@ -184,26 +187,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SuccessfulSamplesRequired
-The number of samples within the sample period that must succeed.
+### -SubscriptionId
+Azure Subscription ID.
 
 ```yaml
-Type: Int32
+Type: System.String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: (Get-AzContext).Subscription.Id
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
+### -TrafficRestorationTimeToHealedOrNewEndpointsInMinute
 Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added.
+Default is 10 mins.
+This property is currently not supported.
 
 ```yaml
-Type: Int32
+Type: System.Int32
 Parameter Sets: (All)
 Aliases:
 
@@ -218,7 +223,7 @@ Accept wildcard characters: False
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: cf
 
@@ -234,7 +239,7 @@ Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
 ```yaml
-Type: SwitchParameter
+Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
 
@@ -250,12 +255,28 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
-
 ## OUTPUTS
 
-### Microsoft.Azure.Commands.Cdn.AfdModels.PSAfdOriginGroup
+### Microsoft.Azure.PowerShell.Cmdlets.Cdn.Models.Api20210601.IAfdOriginGroup
 
 ## NOTES
+
+ALIASES
+
+COMPLEX PARAMETER PROPERTIES
+
+To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
+
+
+HEALTHPROBESETTING <IHealthProbeParameters>: Health probe settings to the origin that is used to determine the health of the origin.
+  - `[ProbeIntervalInSecond <Int32?>]`: The number of seconds between health probes.Default is 240sec.
+  - `[ProbePath <String>]`: The path relative to the origin that is used to determine the health of the origin.
+  - `[ProbeProtocol <ProbeProtocol?>]`: Protocol to use for health probe.
+  - `[ProbeRequestType <HealthProbeRequestType?>]`: The type of health probe request that is made.
+
+LOADBALANCINGSETTING <ILoadBalancingSettingsParameters>: Load balancing settings for a backend pool
+  - `[AdditionalLatencyInMillisecond <Int32?>]`: The additional latency in milliseconds for probes to fall into the lowest latency bucket
+  - `[SampleSize <Int32?>]`: The number of samples to consider for load balancing decisions
+  - `[SuccessfulSamplesRequired <Int32?>]`: The number of samples within the sample period that must succeed
 
 ## RELATED LINKS
